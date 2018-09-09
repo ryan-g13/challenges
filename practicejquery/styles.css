@@ -1,0 +1,20 @@
+#container {
+  display: flex;
+  flex-direction: row; 
+  height: 480px;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  align-content: center;
+  /* justify-content: space-between; */
+}
+
+.responsive {
+  background-color: rgb(107, 194, 196);
+  width: 60px;
+  height: 60px;
+}
+
+button {
+  width: 120px;
+  height: 90px;
+}

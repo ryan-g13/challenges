@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta>
+    <meta>
+    <meta>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id='container' >
+      <div class="responsive">Hola</div>
+      <div class="responsive">My New pet project</div>
+      <button name='submit' type='submit' id="button1">Toggle display of divs</button>
+      <button name='newadd' type='submit' id="button2">add some new divs</button>
+      <button name='remove' type='submit' id="remove">take away the annoying divs</button>
+    </div>
+    
+    <script>
+      $("#button1").click(function() {
+        $(".responsive").toggle();                  
+      });
+      $("#button2").click(function() {
+        $("#container").append("<div>I\'m New here</div>")
+        $("div:last").addClass("responsive");
+        $("div:last").addClass("deletable");
+      });
+      $("#remove").click(() => {
+        $(".deletable:last").remove();
+      });
+    </script>
+
+    <script src='./index.js'></script>
+  </body>
+</html>
