@@ -1,0 +1,26 @@
+class EventEmitter {
+  constructor() {
+    this.events = {};
+  }
+  
+  on (eventType, cbFunction) {
+      // target is the instance of EventEmitter (this)
+    // this.eventType(cbFunction)
+    this.events[eventType] = cbFunction;
+  }
+
+  emit (eventType, ...args) {
+    // args = ['hello', 'world']
+    this.events[eventType](...args);
+    // callback('hello', 'world')
+  }
+}
+
+
+const emitter = new EventEmitter(); 
+const callback = (name , yearsWorked, excitedForJob) => { 
+  console.log(name, yearsWorked, excitedForJob);
+};
+
+emitter.on('event', callback);
+emitter.emit('event', 'hello', 'world', 'foo');
