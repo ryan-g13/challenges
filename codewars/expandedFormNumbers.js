@@ -30,6 +30,7 @@ function expandedForm(num) {
   }
   console.log('Answer', ansString);
   return ansString;
+  
 }
 
 
