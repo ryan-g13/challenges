@@ -20,21 +20,23 @@ function dashatize(num) {
   if(num == 'NaN') { return 'NaN';}
 
   for(let i = 0; i < num.length; i++) {
-    if(num[i] % 2 == 1 && i != num.length - 1) {
+    if(num[i] % 2 == 1) { 
+      if (i != num.length - 1 && i == 0) {
       num = num.slice(0, i + 1) + '-' + num.slice(i + 1);
-    }
-    else if(num[i] % 2 == 1) {
+      }
+      if (num[i - 1] != '-' && i != 0) { 
       num = num.slice(0, i) + '-' + num.slice(i);
       i++;
-      if (i != num.length - 1) {
+      }
+      if (i != num.length - 1 && i != 0) {
         num = num.slice(0, i + 1) + '-' + num.slice(i + 1);
         i++;
-      }
-    }
+        } 
+  }
     console.log(num);
   }
   console.log(num);
   return num;
 };
 
-dashatize(78581);
+dashatize(-77387887);
