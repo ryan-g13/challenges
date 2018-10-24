@@ -34,4 +34,4 @@ var numJewelsInStones = function(J, S) {
   return count;
 };
 
-numJewelsInStones('aDB','aD !BbCDDF');
+numJewelsInStones('aDB','aD BbCDDF');
