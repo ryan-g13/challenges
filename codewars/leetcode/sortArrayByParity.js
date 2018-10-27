@@ -20,9 +20,9 @@ var sortArrayByParity = function(A) {
   let evens = []; 
   A.forEach((element, index) => {
     if(element % 2 == 0 ) {
-      evens.push(A.slice(index, index + 1));
+      evens.push(A.slice(index, index + 1)[0]);
     } else {
-      odds.push(A.slice(index, index + 1));
+      odds.push(A.slice(index, index + 1)[0]);
     }
   });
   console.log(evens);
