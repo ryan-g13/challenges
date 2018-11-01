@@ -27,7 +27,19 @@ Notes:
 */
 
 var flipAndInvertImage = function(A) {
-  
+  console.log(A);
+  for(let i = 0; i < A.length; i++) {
+    A[i] = A[i].reverse();
+    for(let j = 0; j < A[i].length; j++) {
+      if(A[i][j] === 0) { A[i][j] = 1;}
+      else {
+        A[i][j] = 0;
+      }
+    }
+  }
+  console.log(A);
+  return A;
 };
 
+// Expected Output: [0,1,0,1],[0,0,0,0],[0,0,1,1], [0,0,1,0]
 flipAndInvertImage([[1,0,1,0],[0,0,0,0],[1,1,0,0], [0,1,0,0]]);
