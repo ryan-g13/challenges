@@ -44,3 +44,54 @@ const isAnagram = (str1, str2) => {
   }
 }
 isAnagram(ana1, ana2);
+
+
+// Singly linked list class 
+function Node(next, value) {
+  this.next = next;
+  this.value = value;
+};
+
+// let Node = class Node {
+//   constructor(next, value){
+//     this.next = next;
+//     this.value = value;
+//   }
+// }
+function LinkedList() {
+  this.head = null;
+  this.tail = null;
+};
+
+LinkedList.prototype.addToHead = function(value) {
+  const newNode = new Node(null, this.head);
+  
+};
+
+LinkedList.prototype.addToTail = function(value) {
+  const newNode = new Node(null, this.tail);
+  if(this.tail) this.tail.next = newNode;
+  else this.head = newNode;
+  this.tail = newNode;
+}
+
+let list = new LinkedList();
+list.addToTail(7);
+list.addToTail(8);
+list.addToTail(9);
+console.log(list);
+
+function fizzBuzz(arr) {
+  arr.forEach((element, index) => {
+    if( element % 15 === 0) {
+      arr[index] = 'FizzBuzz';
+    } else if (element % 5 === 0) {
+      arr[index] = 'Buzz';
+    } else if (element % 3 === 0) {
+      arr[index] = 'Fizz';
+    }
+  })
+  console.log(arr);
+}
+
+fizzBuzz([1, 3, 5, 15]);
