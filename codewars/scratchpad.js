@@ -95,3 +95,25 @@ function fizzBuzz(arr) {
 }
 
 fizzBuzz([1, 3, 5, 15]);
+
+// function findAnIndex(arr, index) {
+
+// }
+
+const findAnIndex = (arr, target) => {
+  let flag = -1;
+  arr.forEach((element, index) => {
+    if(element === target) {
+      flag = index;
+      return index;
+    }
+  });
+  if(flag != -1) {
+    console.log(flag);
+    return flag;
+  } 
+  console.log('reached', false);
+}
+
+const tempArr = [1, 2, 3, 4, 6];
+findAnIndex(tempArr, 5);
