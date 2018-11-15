@@ -24,5 +24,35 @@ Have fun! And if you enjoy this kata, check out the sequel: Piano Kata, Part 2
 */
 
 function blackOrWhiteKey(keyPressCount) {
-    
+  console.log(keyPressCount);
+  let keyboard = keyPressCount % 88;
+  let octave = keyboard % 12;
+  switch (octave) {
+    case 2:
+      console.log('black');
+      return 'black';
+      break;
+    case 5: 
+      console.log('black');
+      return 'black';
+      break;
+    case 7:
+      console.log('black');
+      return 'black';
+      break;
+    case 10:
+      console.log('black');
+      return 'black';
+      break;
+    case 0:
+      console.log('black');
+      return 'black';
+    default: 
+      console.log('white');
+      return 'white';
+      break;
+  }
 }
+blackOrWhiteKey(1);
+blackOrWhiteKey(100);
+blackOrWhiteKey(2017);
