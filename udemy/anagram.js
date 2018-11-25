@@ -21,26 +21,35 @@ function anagrams(stringA, stringB) {
   console.log(cleanStrA, cleanStrB);
   if(cleanStrA.length !== cleanStrB.length) { return false }
 
-  for(let keys in stringA) {
-    if(keyMap.keys) {
-      keyMap[keys]++;
+  for(let keys of cleanStrA) {
+    if(keyMap[keys]) {
+      keyMap[keys] += 1;
     } else {
       keyMap[keys] = 1;
     }
   }
-  for(let keys in stringB) {
-    if(keyMap.keys) {
+  console.log(keyMap, 'adding values');
+  for(let keys of cleanStrB) {
+    if(keyMap[keys]) {
       keyMap[keys]--;
+    } else if (keyMap[keys] < 0) {
+      return false; 
     } else {
       console.log('hitting here');
       return false;
     }
   }
-
-  return Object.keys(keyMap).reduce((acc, curr) => {
-    console.log(acc + curr);
-    acc + curr;
-  }) === 0 ? true : false;  
+  console.log(keyMap, 'decrementing');
+  let runSum = 0;
+  for(keys in keyMap) {
+    runSum += keyMap[keys];
+  }
+  return runSum === 0 ? true : false;
+  // below returns NAN so needs work on reducing
+  // return Object.keys(keyMap).reduce((acc, curr) => {
+  //   console.log(parseInt(acc) + keyMap[curr]);
+  //   acc + keyMap[curr];
+  // }) === 0 ? true : false;  
 }
 
 module.exports = anagrams;
@@ -73,10 +82,10 @@ module.exports = anagrams;
 // }
 
 // Solution 2 
-function anagrams(stringA, stringB) {
-  return cleanString(stringA) === cleanString(stringB);
-}
+// function anagrams(stringA, stringB) {
+//   return cleanString(stringA) === cleanString(stringB);
+// }
 
-function cleanString(string) {
-  return string.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
-}
+// function cleanString(string) {
+//   return string.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+// }
