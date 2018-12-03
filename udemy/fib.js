@@ -14,15 +14,48 @@ function fib(n) {
   // create array [0, 1];
   // for every value up to n sum the two previous terms. 
   const seqArr = [0, 1];
-  for(let i = 0; i < n; i++) {
-    if(i < 2) {
-      console.log(seqArr[i]);
-      return seqArr[i];
-    } else {
-      seqArr.push((seqArr[i - 1] + seqArr[i - 2]));
-    }
+  for(let i = 2; i <= n; i++) {
+    seqArr.push((seqArr[i - 1] + seqArr[i - 2]));
   }
-  return seqArr.pop();
+  return seqArr[seqArr.length - 1];
 }
 
 module.exports = fib;
+
+// solution iterative
+// function fib(n) {
+//   const result = [0, 1];
+//   for(let i = 2; i <= n; i++) {
+//     const a = result[i - 1];
+//     const b = result[i - 2];
+//     result.push(a + b);
+//   }
+//   return result[n];
+// }
+
+// recursive solution
+// function fib(n, arg1, arg2, step = 2) {
+//   if( n < 2 ) {
+//     return n > 0 ? arg2 : arg1;
+//   }
+//   if(step > n) {
+//     return arg2;
+//   }
+//   let temp = arg1;
+//   arg1 = arg2;
+//   arg2 = temp + arg2;
+//   console.log('arg2: ', arg2, step);
+//   step++;
+//   fib(n, arg1, arg2, step);
+// }
+
+// fib(10, 0, 1);
+
+// Jimmay! recursive solution 
+function fib(n) {
+  if(n < 2 ) {
+    return 1;
+  }
+  fib(n - 1) + fib(n - 2);
+  
+}
