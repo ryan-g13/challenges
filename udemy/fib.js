@@ -52,9 +52,34 @@ module.exports = fib;
 // fib(10, 0, 1);
 
 // Solution 2 recursive solution 
-function fib(n) {
+// function fib(n) {
+//   if(n < 2 ) {
+//     return n;
+//   }
+//   return fib(n - 1) + fib(n - 2);
+// }
+
+// Memoized function to reduce the number of function calls 
+function slowFib(n) {
   if(n < 2 ) {
     return n;
   }
   return fib(n - 1) + fib(n - 2);
 }
+
+function memoizeFn(fn) {
+  const cache = {
+
+  };
+  return function(...args) {
+    if (cache[args]) {
+      return cache[args];
+    }
+    const result = fn.apply(this, args)
+    cache[args] = result;
+
+    return result;
+  }
+}
+
+const fib = memoizeFn(slowFib);
