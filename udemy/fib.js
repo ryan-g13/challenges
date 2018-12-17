@@ -60,26 +60,26 @@ module.exports = fib;
 // }
 
 // Memoized function to reduce the number of function calls 
-function slowFib(n) {
-  if(n < 2 ) {
-    return n;
-  }
-  return fib(n - 1) + fib(n - 2);
-}
+// function slowFib(n) {
+//   if(n < 2 ) {
+//     return n;
+//   }
+//   return fib(n - 1) + fib(n - 2);
+// }
 
-function memoizeFn(fn) {
-  const cache = {
+// function memoizeFn(fn) {
+//   const cache = {
 
-  };
-  return function(...args) {
-    if (cache[args]) {
-      return cache[args];
-    }
-    const result = fn.apply(this, args)
-    cache[args] = result;
+//   };
+//   return function(...args) {
+//     if (cache[args]) {
+//       return cache[args];
+//     }
+//     const result = fn.apply(this, args)
+//     cache[args] = result;
 
-    return result;
-  }
-}
+//     return result;
+//   }
+// }
 
-const fib = memoizeFn(slowFib);
+// const fib = memoizeFn(slowFib);
