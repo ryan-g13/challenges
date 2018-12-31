@@ -23,37 +23,56 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 var maxProfit = function(prices) {
   let buyPoint = {
     index: 0,
-    value: -1
+    value: 999999999
   }  
-  let sellPoint = {
-    index: 0,
-    value: -1
+  let ans = 0;
+  
+  if(prices.length < 2) { 
+    return 0;
   }
 
-  
-  if(prices.length < 2) { return 0;}
   prices.forEach((day, index) => {
-    if(index === 0) {
-      buyPoint.value = day;
-      console.log(buyPoint);
-    }
-    if(day < buyPoint.value && index !== prices.length - 1) {
+    let profit = 0;
+    if(day < buyPoint.value) {
       buyPoint.index = index;
       buyPoint.value = day;
       console.log('setting new buy point', buyPoint);
-    } else if(day >= buyPoint.value && index > buyPoint.index && day >= sellPoint.value) {
-      sellPoint.index = index;
-      sellPoint.value = day;
-      console.log('setting sell point', sellPoint);
+    } else {
+      profit = day - buyPoint.value;
+      if (profit >= ans) {
+        ans = profit;
+      }
     }
   })
-  if(sellPoint.index < buyPoint.index) {return 0;}
-  else {
-    console.log(sellPoint.value - buyPoint.value);
-    return sellPoint.value - buyPoint.value;
-  }
+  console.log(ans);
+  return ans;
 };
 
-// let input = [7,1,5,3,6,4];
-let input = [2,1];
-maxProfit(input);
+let input = [7,1,5,3,6,4];
+// let input = [2,1];
+
+// Alternate solution is faster with a for loop... 
+// var maxProfit = function(prices) {
+//   let lowestPrice = null;
+//   let highestProfit = null;
+  
+//   prices.forEach(value => {
+//       let currentPrice = value;
+//       let profit = 0;
+  
+//       if (lowestPrice === null || currentPrice < lowestPrice) {
+//           lowestPrice = currentPrice;
+//       }
+      
+//       profit = currentPrice - lowestPrice;
+      
+//       if (highestProfit === null || profit > highestProfit) {
+//           highestProfit = profit;
+//       }
+//   })
+//   console.log((highestProfit > 0) ? highestProfit : 0)
+//   return (highestProfit > 0) ? highestProfit : 0;
+// };
+
+// let input = [2,1,2,0,1]
+// maxProfit(input);
