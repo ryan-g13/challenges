@@ -31,6 +31,7 @@ Output: true
 //   return flag;
 // };
 
+// Faster solution using sets for comparison of the array of integer values   
 var containsDuplicate = function(nums) {
   let numSet = new Set();
   let flag = false;
