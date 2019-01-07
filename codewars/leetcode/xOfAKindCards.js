@@ -50,5 +50,28 @@ Note:
 // another method would be to create a hashmap of the keys and encounters and then only construct the array of arrays if it meets the guidelines provided. 
 
 var hasGroupsSizeX = function(deck) {
-    
+  let answer = true;  
+  if(deck.length < 2) { 
+      answer = false;
+      return answer;
+    }
+  const groupMap = new Map();
+  deck.forEach(element => {
+    if(groupMap.get(element)) {
+      groupMap.set(element, groupMap.get(element) + 1);
+    } else {
+      groupMap.set(element, 1);
+    }
+  });
+  // perform a check for the map to verify all conditions are met and then construct 2d array. 
+  let groupSize = groupMap.get(deck[0]) ;
+  // console.log(groupSize);
+  groupMap.forEach(value => {
+    if(value !== groupSize && value % groupSize !== 0) {
+      answer = false;
+    }
+  })
+  return answer;
 };
+
+hasGroupsSizeX([1,2,3,1,2,3]);
