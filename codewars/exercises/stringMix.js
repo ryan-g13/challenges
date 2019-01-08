@@ -41,8 +41,8 @@ function mix(s1, s2) {
   const s2Map = new Map();
 
   // use regex to trim out caps and symbols/spaces
-  s1 = s1.replace(/[^a-z]/ig, '');
-  s2 = s2.replace(/[^a-z]/ig, '');
+  s1 = s1.replace(/[^a-z]/g, '');
+  s2 = s2.replace(/[^a-z]/g, '');
 
 
   fillMap = (list, map) => {
@@ -64,8 +64,15 @@ function mix(s1, s2) {
   let ansArr = []; 
   for(let [key, value] of s1Map) {
     // compare key in s1 to s2 which ever is max add to array. 
-    
+    if(s2Map.get(key) > value && value > 1) {
+      ansArr.push(`2:${s2Map.get(key)}`)
+    } else if(s2Map.get(key) < value && value > 1) {
+      ansArr.push(`1:${value}`);
+    } else if(s2Map.get(key) < value && value > 1) {
+      ansArr.push(`=:${value}`);
+    }
   }
+  console.log(ansArr);  
 }
 
 let s1 = "A aaaa bb c"
