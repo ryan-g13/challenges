@@ -65,17 +65,49 @@ function mix(s1, s2) {
   for(let [key, value] of s1Map) {
     // compare key in s1 to s2 which ever is max add to array. 
     if(s2Map.get(key) > value && value > 1) {
-      ansArr.push(`2:${s2Map.get(key)}`)
+      ansArr.push(`2:${key.repeat(s2Map.get(key))}`);
+      s2Map.set(key, 0);
     } else if(s2Map.get(key) < value && value > 1) {
-      ansArr.push(`1:${value}`);
-    } else if(s2Map.get(key) < value && value > 1) {
-      ansArr.push(`=:${value}`);
+      ansArr.push(`1:${key.repeat(value)}`);
+      s2Map.set(key, 0);
+    } else if(s2Map.get(key) === value && value > 1) {
+      ansArr.push(`=:${key.repeat(value)}`);
+      s2Map.set(key, 0);
+    }
+  }  
+  console.log(ansArr, 'after s1 for loop');
+  console.log(s2Map, 'after for loop')
+  for(let [key, value] of s2Map) {
+    if(s1Map.get(key) < value && value > 1) {
+      ansArr.push(`2:${key.repeat(value)}`);
     }
   }
-  console.log(ansArr);  
+  console.log(ansArr); 
+
+  // custom sort feature
+  function custSort(a,b){
+    return b.length - a.length;
+    }
+
+  
+  // sort by index length and if there is no matching value append a / to the end of the string
+  console.log(ansArr.sort(custSort));
+  let sortedArr = ansArr.sort(custSort);
+  let retString = ''
+  for(let i = 0; i < sortedArr.length - 1; i++) {
+    if(sortedArr[i].length > sortedArr[i + 1].length) {
+      retString = retString + sortedArr[i] + '/'; 
+    } else {
+      retString += sortedArr[i];
+    }
+  }
+  retString += sortedArr[sortedArr.length - 1];
+  console.log(retString);
+  return retString;
 }
 
-let s1 = "A aaaa bb c"
-
-let s2 = "& aaa bbb c d"
+// let s1 = "A aaaa bb c"
+let s1 = "mmmmm m nnnnn y&friend&Paul has heavy hats! &"
+let s2 = "my frie n d Joh n has ma n y ma n y frie n ds n&"
+// let s2 = "& aaa bbb c d"
 mix(s1, s2);
