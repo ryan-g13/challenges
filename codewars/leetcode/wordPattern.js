@@ -27,28 +27,57 @@ Output: false
 //1st approach - create a hashmap as you encounter keys from the pattern the value would be added or verified as a collision occurs if they do not equal return false.
 //2nd approach - 
 
+// var wordPattern = function(pattern, str) {
+//     const patternMap = new Map();
+//     let splitStr = str.split(' ');
+//     let splitPat = pattern.split('');
+//     let ansFlag = true;
+     
+//     if(splitPat.length != splitStr.length) {
+//       console.log(false);
+//       return false;
+//     }
+//     splitStr.forEach((word,index) => {
+//       if(!patternMap.has(splitPat[index])) {
+//         if(patternMap.values().indexOf(word) === -1) {
+//           patternMap.set(splitPat[index], word)
+//         } else {
+//           ansFlag = false;
+//         }
+//       } else if(patternMap.get(splitPat[index]) !== word) {
+//         ansFlag = false;
+//       }
+//     })
+//     console.log(ansFlag);
+//     return ansFlag;
+// };
+
 var wordPattern = function(pattern, str) {
-    const patternMap = new Map();
-    let splitStr = str.split(' ');
-    let splitPat = pattern.split('');
-    let ansFlag = true;
-    // if does not exist add to map with value from split str 
-    // if does have match check to see if map's value is same as string at that index 
-    if(splitPat.length != splitStr.length) {
-      return false;
-    }
-    splitStr.forEach((word,index) => {
-      if(!patternMap.has(splitPat[index])) {
-        patternMap.set(splitPat[index], word)
-      } else if(patternMap.get(splitPat[index]) !== word) {
+  const patternMap = {};
+  let splitStr = str.split(' ');
+  let splitPat = pattern.split('');
+  let ansFlag = true;
+   
+  if(splitPat.length != splitStr.length) {
+    console.log(false);
+    return false;
+  }
+  splitStr.forEach((word,index) => {
+    if(!patternMap[splitPat[index]]) {
+      if(Object.values(patternMap).indexOf(word) === -1) {
+        patternMap[splitPat[index]] = word;
+      } else {
         ansFlag = false;
       }
-    })
-    console.log(ansFlag);
-    return ansFlag;
+    } else if(patternMap[splitPat[index]] !== word) {
+      ansFlag = false;
+    }
+  })
+  console.log(ansFlag);
+  return ansFlag;
 };
 
 let pattern = "abba";
-let str = "dog cat cat dog";
+let str = "dog moo moo dog";
 
 wordPattern(pattern, str);
