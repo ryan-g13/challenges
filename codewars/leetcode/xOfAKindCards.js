@@ -64,14 +64,41 @@ var hasGroupsSizeX = function(deck) {
     }
   });
   // perform a check for the map to verify all conditions are met and then construct 2d array. 
-  let groupSize = groupMap.get(deck[0]) ;
-  // console.log(groupSize);
+  let groupSize = groupMap.get(deck[0]);
+  console.log('group', groupSize);
   groupMap.forEach(value => {
-    if(value !== groupSize && value % groupSize !== 0) {
-      answer = false;
-    }
+    // if(value !== groupSize && value % groupSize !== 0) {
+    //   answer = false;
+    // }
+    console.log(value, 'value')
+    console.log(value >= 2 ? (value % 2 === 0 ? true : (value === groupSize) ? true : answer = false ) : answer = false); 
+    value >= 2 ? (value % 2 === 0 ? true : (value === groupSize) ? true : answer = false ) : answer = false
   })
+  console.log(answer);
   return answer;
 };
 
-hasGroupsSizeX([1,2,3,1,2,3]);
+hasGroupsSizeX([1,1,2,2,3,3,1,2,3]);
+
+//var hasGroupsSizeX = function(deck) {
+//   let counts = {};
+//   for(let v of deck) {
+//       counts[v] = counts[v] ? counts[v] + 1 : 1;
+//   }
+//   let count = counts[Object.keys(counts)[0]]; 
+//   for (let key in counts) {
+//       if(gcd(counts[key],count) < 2) {
+//           return false;
+//       }
+//   }
+  
+//   function gcd(a, b) {
+//       if ( ! b) {
+//           return a;
+//       }
+
+//       return gcd(b, a % b);
+//   };
+  
+//   return true;
+// };
