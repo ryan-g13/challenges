@@ -88,9 +88,9 @@ function fight(robot1, robot2, tactics) {
   if(robot1.health === robot2.health) {
     console.log('tie');
     return 'The fight was a draw.';
-  } else if (robot1.health > robot2.healh) {
+  } else if (robot1.health > robot2.health) {
     return `${robot1.name} has won the fight.`
-  } else if (robot1.health < robot2.healh){
+  } else if (robot1.health < robot2.health){
     return `${robot2.name} has won the fight.`
   } else {
     return message;
