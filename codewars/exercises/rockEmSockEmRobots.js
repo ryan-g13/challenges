@@ -40,6 +40,7 @@ Rules
 */
 
 function fight(robot1, robot2, tactics) {
+  console.log(robot1, robot2, tactics)
   if(robot1.tactics.length === 0 && robot2.tactics.length === 0) {
     return `The fight was a draw.`
   } else if(robot1.tactics.length === 0) {
@@ -57,22 +58,26 @@ function fight(robot1, robot2, tactics) {
   let message = '';
   let i = 0;
   while(message === '' && i < robot1.tactics.length) {
-    if(first = 1) {
+    if(first === 1) {
       battleMove(robot1, robot2, i);
+      if(message !== '') break; 
       battleMove(robot2, robot1, i);
+      if(message !== '') break;      
       i++;
     } else {
       battleMove(robot2, robot1, i);
+      if(message !== '') break;   
       battleMove(robot1, robot2, i);
+      if(message !== '') break;   
       i++;
     }
   }
 
   function battleMove(robot, target, i) {
     target.health = target.health - tactics[robot.tactics[i]]
-    console.log(target.health, target.name);
+//     console.log(target.health, target.name);
     if(healthCheck(target) === 'dead'){
-      console.log(`${robot.name} has won the fight.`);
+//       console.log(`${robot.name} has won the fight.`);
       message = `${robot.name} has won the fight.`
       return message;
     };
@@ -80,13 +85,13 @@ function fight(robot1, robot2, tactics) {
 
   function healthCheck(robot) {
     if(robot.health <= 0) {
-      console.log('dead');
+//       console.log('dead');
       return 'dead';
     }
   }
 
   if(robot1.health === robot2.health) {
-    console.log('tie');
+//     console.log('tie');
     return 'The fight was a draw.';
   } else if (robot1.health > robot2.health) {
     return `${robot1.name} has won the fight.`
