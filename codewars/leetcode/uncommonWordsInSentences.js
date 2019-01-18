@@ -68,3 +68,18 @@ var uncommonFromSentences = function(A, B) {
 };
 
 uncommonFromSentences("Shruti is a cutie", "Moo is the cutie");
+
+// Found deduped solution - combine the strings into one and then only singular encounters are unique and returned
+// var uncommonFromSentences = function (A, B) {
+//   const storeObj = {}
+//   let concateStr = `${A} ${B}`;
+//   const resultArr = [];
+//   concateStr = concateStr.split ` `;
+//   concateStr.forEach(e => {
+//     storeObj[e] = (storeObj[e] || 0) + 1;
+//   })
+//   Object.keys(storeObj).forEach(key => {
+//     if (storeObj[key] === 1) resultArr.push(key);
+//   })
+//   return resultArr;
+// };
