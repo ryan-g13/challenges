@@ -45,17 +45,20 @@ Every integer represented in the list will be between -30000 and 30000.
 // Algorithm: Iterate through the array of operations with a running sum and a last value variables in order to enforce the commands. Mutating array.
 
 var calPoints = function(ops) {
-  let runSum = 0;
-  let lastValid = 0;
-  for(let i = 0; i < ops.length; i++) {
-    if(ops[i] == parseInt(ops[i])) {
-      runSum += parseInt(ops[i]);
-    } else if (ops[i] === 'C') {
-      
-    } else if (ops[i] === 'D') {
-
-    } else if (ops[i] === '+') {
-
-    }
-  };
+  let roundScore = []
+  ops.forEach(round => {
+      let i = scores.length
+      if (round === 'C') {
+         scores.pop()
+      } else if (round === 'D'){
+         scores.push(roundScore[i - 1] * 2)
+      } else if (round === '+'){
+         scores.push((roundScore[i - 1] + roundScore[i - 2]))
+      } else {
+         scores.push(parseInt(round))
+      }
+  })
+  return scores.reduce((round, totalScore) => {
+      return round + totalScore;
+  });
 };
