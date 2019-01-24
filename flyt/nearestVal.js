@@ -29,3 +29,4 @@ calcValue(testArr, testTar);
 // recursive solution 
 // 4 parameters 
 // 
+module.exports = calcValue;
