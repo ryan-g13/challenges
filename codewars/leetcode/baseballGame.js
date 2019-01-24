@@ -42,8 +42,20 @@ The size of the input list will be between 1 and 1000.
 Every integer represented in the list will be between -30000 and 30000.
 
 */
-// Algorithm: Iterate through the array of operations with a running sum and a last value variables in order to enforce the commands. 
+// Algorithm: Iterate through the array of operations with a running sum and a last value variables in order to enforce the commands. Mutating array.
 
 var calPoints = function(ops) {
-    
+  let runSum = 0;
+  let lastValid = 0;
+  for(let i = 0; i < ops.length; i++) {
+    if(ops[i] == parseInt(ops[i])) {
+      runSum += parseInt(ops[i]);
+    } else if (ops[i] === 'C') {
+      
+    } else if (ops[i] === 'D') {
+
+    } else if (ops[i] === '+') {
+
+    }
+  };
 };
