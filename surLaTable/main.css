@@ -1,0 +1,18 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-column-gap: 10px;
+  grid-gap: 10px;
+  justify-items: center;
+  align-items: center;  
+}
+
+.grid-container div {
+  background: orange;
+  border: 2px ridge black;
+  border-radius: 10px;
+  height: 40px;
+  margin: auto;
+  padding: 5px;
+  width: 40px;
+}
