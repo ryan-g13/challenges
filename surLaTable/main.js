@@ -2,29 +2,28 @@
   Function call to dynamically create the required grid elements
 // ============================================================================================
 */
-function addElement() {
-	let targetDiv = document.querySelector("#grid-container");
-  for(let i = 1; i <= 64; i++) {
-      targetDiv.innerHTML = targetDiv.innerHTML + `<div class=card draggable="true">${i}</div>`;
-    }
+  function addElement() {
+    let targetDiv = document.querySelector("#grid-container");
+    for(let i = 1; i <= 64; i++) {
+        targetDiv.innerHTML = targetDiv.innerHTML + `<div class=card draggable="true">${i}</div>`;
+      }
  }
 
 addElement();
 
-
+// Global Declarations
 var dragSrcEl = null;
 var items = document.querySelectorAll('#grid-container .card');
 
 
 function handleDragStart(event) {
   this.style.opacity = '0.25';
+  this.classList.add('ghost');
 
   dragSrcEl = this;
-  console.log(dragSrcEl, 'Drag Start');
-
+  
   event.dataTransfer.effectAllowed = 'move';
   event.dataTransfer.setData('text/html', this.innerHTML);
-  this.classList.add('ghost');
 }
 
 function handleDragEnter(event) {
@@ -64,6 +63,7 @@ function handleDragCleanup(event) {
   [].forEach.call(items, function (item) {
     item.classList.remove('over');
     item.classList.remove('ghost');
+    item.style.opacity = '1.0';
   });
 }
 
@@ -77,4 +77,11 @@ function handleDragCleanup(event) {
   item.addEventListener('dragend', handleDragCleanup, false);
 });
 
-
+// Exporting functions for testing purposes. 
+// module.exports.addElement = addElement;
+module.exports.handleDragStart = handleDragStart;
+module.exports.handleDragOver = handleDragOver;
+module.exports.handleDragExit = handleDragExit;
+module.exports.handleDragEnter = handleDragEnter;
+module.exports.handleDragDrop = handleDragDrop;
+module.exports.handleDragCleanup = handleDragCleanup;

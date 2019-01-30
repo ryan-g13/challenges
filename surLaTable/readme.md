@@ -1,21 +1,9 @@
-Assignment: Create an 8x8 grid and make it so you can drag and drop each cell to rearrange the grid.  You can use any framework, and please use jsfiddle.
+# Goal
 
- 
+Create an 8x8 grid and make it so you can drag and drop each cell to rearrange the grid.  You can use any framework, and implement the solution via jsfiddle.
 
-In-Person Presentation - Be prepared to:
+### Ideation: 
+The color scheme is similar to the one currently used on [SurLaTable.com](http://surLaTable.com)
 
-    Present your solution
-    Discuss how did came up with the design
-    Discuss how you tested the outcome
-    Share what documentation was associated so that in the future another developer can pick up the solution and enhance it or modify it
-
- 
-
-In-Person Presentation – Schedule:
-
-    Introductions (5 min)
-    Presentation (15 min)
-    Q&A (5 min)
-    Questions for interviewers (time for you to ask them questions) (5 min)
-
- 
+### Solution:   
+The technologies used for this solution are vanilla JavaScript, (native)HTML5, and SCSS. 

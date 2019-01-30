@@ -1,6 +1,22 @@
+body {
+  margin: 0;
+}
+
+#title { 
+  margin: auto;
+  width: 66%;
+  text-align: center;
+  border-bottom: 3px solid #000;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #000;
+}
+
 #grid-container {
-  max-width: 420px;
-  margin: 0 auto;
+  max-width: 480px;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(8, 50px);
   grid-column-gap: 10px;
@@ -10,13 +26,14 @@
 }
 
 .card {
-  background: orange;
+  background: #6d8b19;
   border: 2px ridge black;
   border-radius: 10px;
   height: 40px;
   margin: auto;
   padding: 5px;
   width: 40px;
+  color: #000;
   -webkit-border-radius: 10px;
   -ms-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -27,11 +44,12 @@
   cursor: move;
 }
 
-/* .ghost {
+.ghost {
   border: 1px dashed #000;
   background-color: #fff;
+  transform: scale(.85);
 }
- */
+
 [draggable] {
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -43,4 +61,30 @@
 }
 .card.over {
   border: 2px dashed #000;
+}
+
+footer {
+  margin: auto; 
+  margin-top: 10px;
+  text-align: center;
+  border-top: 3px solid #000;
+  width: 450px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: #6d8b19;
+  font-size: 125%;
+  transition: color 0.25s linear;
+  -webkit-transition: color 0ms linear 0.25s,
+                      font-size 0.5s linear;
+    -moz-transition: color 0ms linear 0.25s,
+                     font-size 0.55s linear;
+    -o-transition: color 0ms linear 0.25s,
+                   font-size 0.55s linear;
+    transition: color 0ms linear .5s,
+                      font-size 0.5s linear;
 }
