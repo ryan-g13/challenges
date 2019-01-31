@@ -9,7 +9,7 @@
       }
  }
 
-addElement();
+// addElement();
 
 // Global Declarations
 var dragSrcEl = null;
