@@ -9,13 +9,16 @@
       }
  }
 
-// addElement();
+addElement();
 
 // Global Declarations
 var dragSrcEl = null;
 var items = document.querySelectorAll('#grid-container .card');
 
-
+/* ============================================================================================
+// Event handling functions - In order of occurance with user flow.
+// ============================================================================================
+*/
 function handleDragStart(event) {
   this.style.opacity = '0.25';
   this.classList.add('ghost');
@@ -45,22 +48,18 @@ function handleDragExit(event) {
 
 function handleDragDrop(event) {
   if(event.stopPropagation) {
-    event.stopPropagation(); // prevents redirection
+    event.stopPropagation(); // prevents further capturing and bubbling of this event.
   }
+  // checking if it is dropping on the same starting block
   if(dragSrcEl != this) {
-    dragSrcEl.style.opacity = '1.0';
-    // check for if it is dropping on the same starting block
     dragSrcEl.innerHTML = this.innerHTML;
     this.innerHTML = event.dataTransfer.getData('text/html');
-    this.style.opacity = "1.0";
   }
-    dragSrcEl.style.opacity = '1.0';
-
   return false;
 }
 
 function handleDragCleanup(event) {
-  [].forEach.call(items, function (item) {
+  items.forEach(item => {
     item.classList.remove('over');
     item.classList.remove('ghost');
     item.style.opacity = '1.0';
@@ -68,7 +67,7 @@ function handleDragCleanup(event) {
 }
 
 // Attaching event listners to the appropriate dynamically created elements. 
-[].forEach.call(items, function(item) {
+items.forEach((item) => {
   item.addEventListener('dragstart', handleDragStart, false);
   item.addEventListener('dragenter', handleDragEnter, false);
   item.addEventListener('dragover', handleDragOver, false);

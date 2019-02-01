@@ -4,12 +4,13 @@ Create an 8x8 grid and make it so you can drag and drop each cell to rearrange t
 
 ## Ideation: 
 Instead of utilizing a library or set of libraries I challenged myself to write the solution with vanilla languages. I was really excited to learn the nuances of HTML5 and vanilla DOM manipulation. 
+Inspiration for the swappable cards was from other UI's I have encountered, the square with rounded corners and the shadow boxing for added depth and feel. The under border as a good separator between content blocks. 
 
 The color scheme is inspired by the one currently used on [SurLaTable.com](http://surLaTable.com). 
 
-
 ## Solution:   
-The technologies used for this solution are vanilla JavaScript, (native)HTML5, and SCSS. 
+The technologies used for this solution are vanilla JavaScript, (native)HTML5, and SCSS. I considered using flexbox, as part of the CSS solution, however I chose to utilize CSS grid since it seems to match the use case better.
+As part of the planning I am familiar with both React.js and JQuery and the power of both of these libraries for DOM manipulation and targeting.  
 
 The testing library being used to write unit tests is Jest
 
@@ -17,7 +18,7 @@ The testing library being used to write unit tests is Jest
 
 Look & Feel:
 
-   - Test for appearance like how does it look in IE, Chrome, etc.
+   - Test for appearance like how does it look in IE, Chrome, etc. (Cross Browser support)
    - Test for accessibility so that your site is adopted for people with impaired vision (fonts, colors, contrast, etc)
    - Test for mobile devices layout
    - Test if it is comfortable to interact with the site using touch pad
