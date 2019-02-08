@@ -28,5 +28,31 @@ Both numbers with value 2 are both considered as second maximum.
 */
 
 var thirdMax = function(nums) {
-    
+  console.log(nums);
+  if(nums.length < 3) {
+    return nums[0] > nums[1] ? nums[1] : nums[0];
+  }
+  let max = -999;
+  let secNum = -1;
+  let thirdNum = -1;
+  nums.forEach(number => {
+    if(number > max ) {
+      let temp = max;
+      max = number; 
+      let temp2 = secNum;
+      secNum = temp;
+      thirdNum = temp2;
+    } else if (number > secNum && number !== max) {
+      let temp = secNum;
+      thirdNum = temp;
+      secNum = number;
+    } else if (number >= thirdNum && number !== max && number !== secNum) {
+      thirdNum = number;
+    }
+  });
+  console.log(thirdNum, secNum, max);
+  return thirdNum;
 };
+
+let numbers = [2, 2, 4 ,5, 5, 5 ];
+thirdMax(numbers);
